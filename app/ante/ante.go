@@ -51,17 +51,17 @@ func NewAnteHandler(
 		ante.NewDeductFeeDecorator(accountKeeper, bankKeeper, feegrantKeeper, ValidateTxFeeWrapper(paramKeeper)),
 		// Set public keys in the context for fee-payer and all signers.
 		// Contract: must be called before all signature verification decorators.
-		ante.NewSetPubKeyDecorator(accountKeeper),
+		//ante.NewSetPubKeyDecorator(accountKeeper),
 		// Ensure that the tx's count of signatures is <= the tx signature limit.
-		ante.NewValidateSigCountDecorator(accountKeeper),
+		//ante.NewValidateSigCountDecorator(accountKeeper),
 		// Ensure that the tx's gas limit is > the gas consumed based on signature verification.
 		// Side effect: consumes gas from the gas meter.
-		ante.NewSigGasConsumeDecorator(accountKeeper, sigGasConsumer),
+		//ante.NewSigGasConsumeDecorator(accountKeeper, sigGasConsumer),
 		// Ensure that the tx's signatures are valid. For each signature, ensure
 		// that the signature's sequence number (a.k.a nonce) matches the
 		// account sequence number of the signer.
 		// Note: does not consume gas from the gas meter.
-		ante.NewSigVerificationDecorator(accountKeeper, signModeHandler),
+		//ante.NewSigVerificationDecorator(accountKeeper, signModeHandler),
 		// Ensure that the tx does not contain a MsgExec with a nested MsgExec
 		// or MsgPayForBlobs.
 		NewMsgExecDecorator(),
