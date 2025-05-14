@@ -161,6 +161,8 @@ func (m *Manager) InitGenesis(ctx sdk.Context, cdc codec.JSONCodec, genesisData 
 
 		moduleValUpdates := modules[moduleName].InitGenesis(ctx, cdc, genesisData[moduleName])
 
+		ctx.Logger().Info("initialization for module done", "module", moduleName)
+
 		// use these validator updates if provided, the module manager assumes
 		// only one module will update the validator set
 		if len(moduleValUpdates) > 0 {

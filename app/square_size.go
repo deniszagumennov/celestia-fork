@@ -13,7 +13,11 @@ func (app *App) MaxEffectiveSquareSize(ctx sdk.Context) int {
 	// and comet that have full support of PreparePropsoal, although
 	// celestia-app does not currently use those. see this PR for more details
 	// https://github.com/cosmos/cosmos-sdk/pull/14505
-	if ctx.BlockHeader().Height <= 1 {
+	height := ctx.BlockHeight()
+	app.Logger().Info("HEIGHT", "height", height)
+	app.Logger().Info("DEFAULT GOV SIZE", "default size", int(appconsts.DefaultGovMaxSquareSize))
+
+	if height <= 1 {
 		return int(appconsts.DefaultGovMaxSquareSize)
 	}
 

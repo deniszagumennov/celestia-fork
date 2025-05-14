@@ -24,6 +24,9 @@ import (
 // visibility and so they can be quickly resolved.
 func (app *App) PrepareProposal(req abci.RequestPrepareProposal) abci.ResponsePrepareProposal {
 	defer telemetry.MeasureSince(time.Now(), "prepare_proposal")
+
+	app.BaseApp.Logger().Info("PREPARE PROPOSAL ENTER")
+
 	// Create a context using a branch of the state.
 	sdkCtx := app.NewProposalContext(core.Header{
 		ChainID: req.ChainId,
