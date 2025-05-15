@@ -30,3 +30,7 @@ func (k Keeper) GovMaxSquareSize(ctx sdk.Context) (res uint64) {
 	k.paramStore.Get(ctx, types.KeyGovMaxSquareSize, &res)
 	return res
 }
+
+func (k Keeper) HasGovMaxSquareSize(ctx sdk.Context) bool {
+	return k.paramStore.Has(ctx, types.KeyGovMaxSquareSize)
+}
