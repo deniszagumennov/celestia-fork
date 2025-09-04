@@ -16,7 +16,7 @@ jobs:
       - run: git fetch --force --tags
       - name: Set GORELEASER_CURRENT_TAG in GitHub env
         run: echo "GORELEASER_CURRENT_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b #v5.4.0
+      - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 #v6.0.0
         with:
           go-version-file: 'go.mod'
       - name: Create .release-env file
@@ -39,7 +39,7 @@ jobs:
       - run: git fetch --force --tags
       - name: Set GORELEASER_CURRENT_TAG in GitHub env
         run: echo "GORELEASER_CURRENT_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b #v5.4.0
+      - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 #v6.0.0
         with:
           go-version-file: 'go.mod'
       - name: Create .release-env file
